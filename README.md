@@ -1,29 +1,51 @@
-# Energy-Consumption-Analysis-Using-SQL
-# World Wide Energy Consumption - SQL Data Analysis Project
 
-## Project Overview
-This project explores global energy trends using data sourced from the U.S. Energy Information Administration (EIA), which tracks energy consumption, emissions, production, and population metrics across various countries. The primary objective is to build a structured relational database and execute complex SQL queries to uncover correlations between a country's economic power, energy usage, and environmental impact.
+This project focuses on a comprehensive World Wide Energy Consumption Analysis using MySQL. It bridges the gap between raw global energy data and strategic policy insights by analyzing the interdependencies between energy production, consumption, carbon emissions, population, and economic growth (GDP).  
 
-## Database Architecture
-The project utilizes a MySQL database named `ENERGYDB2`, structured with a central dimension table and several related tables.
+-- Project Structure
 
-### Schema Summary:
-* **`country`**: The central table containing unique country identifiers.
-* **`emission_3`**: Tracks carbon emissions and per capita emissions by year and energy type.
-* **`population`**: Records historical population data by country and year.
-* **`production`**: Logs energy production volumes by type and year.
-* **`gdp_3`**: Contains GDP values over time.
-* **`consumption`**: Details energy consumption metrics by type and year.
+The repository contains the following core components:
+- Energy Consumption Analysis.sql: Comprehensive SQL script containing database initialization and all analytical queries. 
+- Energy Consumption.pptx: Presentation summarizing key findings, visualizations, and recommendations.  
 
-<img width="434" height="331" alt="Energy Consumption ER" src="https://github.com/user-attachments/assets/9d7742bc-fca0-4832-8694-614f9fe52259" />
+-- Database Architecture
+
+The analysis is built on a relational database schema designed for efficient cross-dimensional querying.  
+- Entity-Relationship Diagram
+- Table Descriptions
+- 
+The database consists of 6 primary tables:  
+- country: Central dimension table containing unique country names and IDs (CID).  
+- emission: Tracks carbon emissions and per-capita metrics by energy type and year.  
+- population: Historical population data across various years.  
+- production: Energy production volumes categorized by fuel type.  
+- gdp: Economic output data (GDP) per country and year.  
+- consumption: Energy usage metrics by type and country.
+
+-- The Entity-Relationship Diagram as follows
+
+<img width="434" height="331" alt="Energy Consumption ER" src="https://github.com/user-attachments/assets/a2e419cd-e9a7-4b60-b222-a2f05ddd0444" />
 
 
-All secondary tables maintain a `1-to-Many` relationship with the central `country` table via Foreign Keys referencing the `Country` column.
+-- Project Objectives
 
-## Setup Instructions
-To replicate this project locally, follow these steps in your MySQL environment:
+Identify Performance Extremes: Pinpoint the highest and lowest performers in emissions, GDP, and energy usage for recent years.  
+- Year-over-Year (YoY) Growth: Quantify global and national trends to identify acceleration or deceleration patterns.  
+- Efficiency Ratios: Compute emission-to-GDP and consumption-to-GDP ratios to measure how efficiently economies convert energy into economic output.  
+- Per Capita Benchmarking: Adjust raw totals by population for fair international comparisons.  
+- Decoupling Analysis: Test the statistical relationship between economic growth and energy production growth.  
 
-1. **Initialize Database**:
-   ```sql
-   CREATE DATABASE ENERGYDB;
-   USE ENERGYDB;
+-- Key Insights & Queries
+
+The project addresses several critical business and environmental questions through SQL: 
+- Emissions Analysis: Calculating total emissions per country for the most recent year and identifying top contributors by energy type.  
+- Economic Trends: Tracking GDP shifts and identifying the top 5 global economies.  
+- Global Change Tracking: Utilizing window functions (e.g., LAG) to calculate global emission percentage changes year-over-year.  
+- Sustainability Benchmarks: Identifying nations that have most successfully reduced their per-capita emissions over time. 
+- Global Market Share: Determining each country's percentage share of total global emissions.  
+
+-- Recommendations
+
+-Enrich Data: Integrate new sources such as renewable energy percentages and trade flows to enhance the existing schema.  
+- Predictive Modeling: Move beyond descriptive SQL into forecasting and machine learning to predict future energy needs.  
+- Strategic Communication: Develop live dashboards to align technical findings with United Nations Sustainable Development Goals (SDGs).  
+
